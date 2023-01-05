@@ -10,8 +10,7 @@
                 return;
             }
             var fileName = args[0];
-            var calls = new CallLogReader().ReadCalls(fileName);
-            var cost = new CostCalculator().CalculateCost(calls);
+            var cost = new CostCalculator().calculate(fileName);
             Console.WriteLine($"Your cost is {cost}.");
         }
     }
