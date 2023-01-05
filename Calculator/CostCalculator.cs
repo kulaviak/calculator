@@ -1,4 +1,6 @@
-﻿namespace MyApp;
+﻿using MyApp;
+
+namespace Calculator;
 
 public class CostCalculator
 {

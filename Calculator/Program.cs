@@ -1,4 +1,6 @@
-﻿namespace MyApp 
+﻿using Calculator;
+
+namespace MyApp 
 {
     internal class Program
     {
@@ -10,8 +12,15 @@
                 return;
             }
             var fileName = args[0];
-            var cost = new CostCalculator().calculate(fileName);
-            Console.WriteLine($"Your cost is {cost}.");
+            try
+            {
+                var cost = new CostCalculator().calculate(fileName);
+                Console.WriteLine($"Your cost is {cost}.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Calculation failed. Error: {ex.Message}");
+            }
         }
     }
 }
