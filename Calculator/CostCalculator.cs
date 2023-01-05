@@ -1,13 +1,13 @@
-﻿using MyApp;
-
-namespace Calculator;
-
-public class CostCalculator
+﻿namespace Calculator
 {
-    public decimal calculate(string fileName)
+    public class CostCalculator
     {
-        var calls = new CallLogReader().ReadCalls(fileName);
-        var cost = new MultipleCallCostCalculator().CalculateCost(calls);
-        return cost;
-    }
+        public decimal calculate(string fileName)
+        {
+            var calls = new CallLogReader().ReadCalls(fileName);
+            var cost = new MultipleCallCostCalculator().CalculateCost(calls);
+            return cost;
+        }
+    }    
 }
+

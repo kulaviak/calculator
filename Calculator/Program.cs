@@ -1,6 +1,6 @@
-﻿using Calculator;
+﻿using System;
 
-namespace MyApp 
+namespace Calculator
 {
     internal class Program
     {

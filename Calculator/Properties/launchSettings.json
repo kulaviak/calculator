@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Calculator": {
+      "commandName": "Project",
+      "commandLineArgs": "../../../../generated_sample_2.csv"
+    }
+  }
+}
