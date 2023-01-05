@@ -11,7 +11,7 @@ public class OneCallCostCalculator
     public decimal CalculateCallCost(Call call)
     {
         decimal ret = 0;
-        for (var dateTime = call.From; dateTime < call.To; dateTime.AddMinutes(1))
+        for (var dateTime = call.From; dateTime < call.To; dateTime = dateTime.AddMinutes(1))
         {
             ret += GetRate(call, dateTime);
         }

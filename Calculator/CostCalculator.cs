@@ -18,7 +18,7 @@ public class CostCalculator
         return ret;
     }
 
-    public static int GetMostFrequentNumber(List<Call> calls)
+    public static double GetMostFrequentNumber(List<Call> calls)
     {
         var pairs = calls.GroupBy(x => x.PhoneNumber).ToDictionary(x => x.Key, y => y.Count());
         var ret = pairs.OrderByDescending(x => x.Value).ThenByDescending(x => x.Key).First().Key;

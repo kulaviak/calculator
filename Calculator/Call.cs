@@ -1,3 +1,3 @@
 namespace MyApp;
 
-public record Call(int PhoneNumber, DateTime From, DateTime To) {}
+public record Call(double PhoneNumber, DateTime From, DateTime To) {}
