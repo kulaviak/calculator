@@ -11,16 +11,16 @@ public class OneCallCostCalculator
     public decimal CalculateCallCost(Call call)
     {
         decimal ret = 0;
-        for (var dateTime = call.From; dateTime < call.To; dateTime = dateTime.AddMinutes(1))
+        for (var dateTime = call.Start; dateTime < call.End; dateTime = dateTime.AddMinutes(1))
         {
-            ret += GetRate(call, dateTime);
+            ret += GetRate(call.Start, dateTime);
         }
         return ret;
     }
 
-    public static decimal GetRate(Call call, DateTime dateTime)
+    public static decimal GetRate(DateTime callStart, DateTime dateTime)
     {
-        if (!IsAfter5Minutes(call.From, dateTime))
+        if (!IsAfter5Minutes(callStart, dateTime))
         {
             if (IsInHighRateTime(dateTime))
             {
@@ -37,9 +37,9 @@ public class OneCallCostCalculator
         }
     }
 
-    public static bool IsAfter5Minutes(DateTime callFrom, DateTime dateTime)
+    public static bool IsAfter5Minutes(DateTime callStart, DateTime dateTime)
     {
-        var ret = dateTime.Subtract(callFrom).Minutes >= 5;
+        var ret = dateTime.Subtract(callStart).Minutes >= 5;
         return ret;
     }
 

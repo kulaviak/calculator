@@ -51,11 +51,18 @@ public class CallLogReader
         }
 
         var phoneNumberStr = parts[0].Trim();
-        var fromStr = parts[1].Trim();
-        var toStr = parts[2].Trim();
-        if (double.TryParse(phoneNumberStr, out var phoneNumber) && TryParseDateTime(fromStr, out var from) && TryParseDateTime(toStr, out var to))
+        var startStr = parts[1].Trim();
+        var endStr = parts[2].Trim();
+        if (double.TryParse(phoneNumberStr, out var phoneNumber) && TryParseDateTime(startStr, out var start) && TryParseDateTime(endStr, out var end))
         {
-            return new Call(phoneNumber, from, to);
+            if (start <= end)
+            {
+                return new Call(phoneNumber, start, end);
+            }
+            else
+            {
+                return null;
+            }
         }
         else
         {
