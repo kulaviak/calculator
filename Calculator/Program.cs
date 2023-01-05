@@ -6,7 +6,7 @@
         {
             if (args.Length != 1)
             {
-                Console.WriteLine("Expected 1 parameter with file name. You provided none or more.");
+                Console.WriteLine("Expected one parameter with file name. You provided none or more parameters.");
                 return;
             }
             var fileName = args[0];
