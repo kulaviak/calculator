@@ -71,5 +71,13 @@ namespace CalculatorTests
             // 2 * 1 + 3 * 0.5 + 3 * 0.2 
             Assert.AreEqual(4.1m, new OneCallCostCalculator().CalculateCallCost(call));
         }
+        
+        [Test]
+        public void TestCalculateCallCost_WhenInLowRate_WhenLongerThan5Minutes2()
+        {
+            var call = new Call(420374863964, new DateTime(2022, 3, 16, 3, 45, 12), new DateTime(2022, 3, 16, 4, 47, 5));
+            // 5 * 0.5 + 57 * 0.2 
+            Assert.AreEqual(13.9m, new OneCallCostCalculator().CalculateCallCost(call));
+        }
     }
 }

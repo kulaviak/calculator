@@ -15,7 +15,8 @@ namespace Calculator
             decimal ret = 0;
             for (var dateTime = call.Start; dateTime < call.End; dateTime = dateTime.AddMinutes(1))
             {
-                ret += GetRate(call.Start, dateTime);
+                var rate = GetRate(call.Start, dateTime);
+                ret += rate;
             }
 
             return ret;
@@ -42,7 +43,7 @@ namespace Calculator
 
         public static bool IsAfter5Minutes(DateTime callStart, DateTime dateTime)
         {
-            var ret = dateTime.Subtract(callStart).Minutes >= 5;
+            var ret = dateTime.Subtract(callStart).TotalMinutes >= 5;
             return ret;
         }
 
